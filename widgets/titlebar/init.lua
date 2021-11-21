@@ -15,6 +15,11 @@ function change_title_bar(c)
     end
 end
 
+function clear_title_bar()
+    left.widget.text = ''
+    right.widget.text = ''
+end
+
 left = wibox.widget
 {
     {

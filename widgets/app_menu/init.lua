@@ -86,9 +86,6 @@ function create_menu(c)
         table.insert(rows, row)
     end
 
-
-
-
     popup:setup(rows)
 
     popup_unfocused(popup)

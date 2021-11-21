@@ -89,6 +89,13 @@ awful.rules.rules = {
             tag = ""
         }
     },
+    {
+        rule = { class = "Mindustry"  },
+        properties = {
+            screen = 1,
+            tag = ""
+        }
+    },
     -- 
     {
         rule = { instance = "bitwarden"  },

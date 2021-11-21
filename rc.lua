@@ -56,7 +56,7 @@ client.connect_signal("manage", function (c)
         awful.placement.no_offscreen(c)
     end
 end)
-
+active_window = nil
 client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
@@ -67,12 +67,22 @@ end)
 client.connect_signal("focus", function(c)
     c.border_color = beautiful.border_focus
     change_title_bar(c)
-    --widgets.titlebar.widget.text = tostring(c.name)
 end)
 client.connect_signal("unfocus", function(c)
     c.border_color = beautiful.border_normal
-
-    --widgets.titlebar.widget.text = ''
+    clear_title_bar()
+    active_window = nil
 end)
 
+--[[
+awful.widget.watch('ls', 1, function ()
+    local c = mouse.object_under_pointer()
+    if c ~= nil and active_window == nil then
+        pprint ('Active!')
+        c:emit_signal("request::activate", "mouse_enter", {raise = false})
+        active_window = c
+    end
+end)
+
+--]]
 require('settings.rules')

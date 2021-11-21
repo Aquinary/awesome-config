@@ -28,10 +28,8 @@ modkey = 'Mod4'
 )
 
   function require_tags(screen)
-    -- Добавление тегов 
-    --awful.tag({"", "", "", "", "", ""}, screen, awful.layout.layouts[1])
     awful.tag({"", "", "", "", "", ""}, screen, awful.layout.layouts[1])
-end
+  end
 
 
 

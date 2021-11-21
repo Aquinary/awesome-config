@@ -91,10 +91,14 @@ event.root.keys = gears.table.join(
     awful.key({}, "Menu", function() os.execute('~/.config/rofi/bin/launcher_colorful') end),
     awful.key({ modkey }, 'Print', function() os.execute('flameshot gui --path ~/Изображения/') end),
     awful.key({}, 'Print', function() os.execute('flameshot screen -r --path ~/Изображения/') end),
-        awful.key({}, "Control_R", function() os.execute('~/.config/rofi/bin/menu_powermenu') end))
+    awful.key({}, "Control_R", function() os.execute('~/.config/rofi/bin/menu_powermenu') end))
 
 event.root.buttons = gears.table.join(
-    awful.button({ modkey }, 5, awful.tag.viewnext),
+    --awful.button({ modkey }, 5, awful.tag.viewnext),
+    --awful.button({ modkey }, 4, awful.tag.viewprev)
+    awful.button({ modkey }, 5, function()
+        awful.tag.viewnext(1)
+    end),
     awful.button({ modkey }, 4, awful.tag.viewprev)
 )
 
